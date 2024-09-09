@@ -10,6 +10,7 @@ def get_model_path():
     # 조합된 경로를 리턴 = 끝
     # 사용 fastapi main.py 에서 아래와 같이 사용
     # from fishmlserv.model.manager import get_model_path
+    print(pkl_path)
     return pkl_path
 
 #테스트 방법
