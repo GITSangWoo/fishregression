@@ -31,10 +31,10 @@ def fish(length:float):
 
     """
     # 물고기 무게 예측 
-    prediction = linearfish_model.predict([[length]])
+    prediction = float(linearfish_model.predict([[length]])[0][0])
 
     # 물고기 길이와 무게 반환 - 나올 수 있음 
-    return {    
+    return {     
                 "length" : length,
-                "prediction" : predicition 
-            }
+                "prediction" : prediction 
+           }
