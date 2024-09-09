@@ -1,7 +1,5 @@
-import requests 
-import json 
-import 
-
+import requests
+import json
 
 def lr_api(length):
     headers = {
@@ -13,23 +11,23 @@ def lr_api(length):
     }
 
     response = requests.get('http://127.0.0.1:8001/fish_linear_ml_predictor', params=params, headers=headers)
-    data= json.loads(response.text)
+    data=json.loads(response.text)
     r=data['prediction']
     return r
 
 def knn_api(length,weight,n_neighbors=5):
     headers = {
-    'accept': 'application/json',
-}
+        'accept': 'application/json',
+    }
 
-params = {
-    'n_neighbors': '5',
-    'length': length,
-    'weight': weight,
-}
+    params = {
+        'n_neighbors': '5',
+        'length': length,
+        'weight': weight,
+    }
 
-    response = requests.get('http://127.0.0.1:8002/fish_linear_ml_predictor', params=params, headers=headers)
-    data= json.loads(response.text)
+    response = requests.get('http://127.0.0.1:8002/fish_ml_predictor', params=params, headers=headers)
+    data=json.loads(response.text)
     r=data['prediction']
     
     return r
@@ -47,4 +45,3 @@ def predict():
     print(f"length:{length} 물고기는 weight:{weight} 으로 예측 되며 종류는 {fish_class} 입니다.")
 
     
-
